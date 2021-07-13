@@ -12,9 +12,6 @@ public class Part3 {
         while (m.find()) {
             sb.append(m.group()).append(' ');
         }
-        if (sb.length() > 0) {
-            sb.deleteCharAt(sb.length() - 1);
-        }
         System.out.println(sb);
     }
 
