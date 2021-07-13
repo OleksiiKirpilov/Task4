@@ -8,25 +8,29 @@ public class Part3 {
 
     private static void show(String data, String regex) {
         Matcher m = Pattern.compile(regex, Pattern.UNICODE_CHARACTER_CLASS).matcher(data);
+        StringBuilder sb = new StringBuilder();
         while (m.find()) {
-            System.out.println(m.group());
+            sb.append(m.group()).append(' ');
         }
+        if (sb.length() > 0) {
+            sb.deleteCharAt(sb.length() - 1);
+        }
+        System.out.println(sb);
     }
 
     public static void main(String[] args) {
         String data = Part1.getInput("part3.txt");
         Scanner in = new Scanner(System.in);
-        quitToMain:
         while (in.hasNextLine()) {
             String line = in.nextLine();
             switch (line) {
                 case "stop":
-                    break quitToMain;
+                    return;
                 case "char":
                     show(data, "\\b(\\p{Alpha})\\b");
                     break;
                 case "int":
-                    show(data, "([+-]?\\d+)");
+                    show(data, "(?<![.\\d])([+-]?\\d+)(?![.\\d])");
                     break;
                 case "String":
                     show(data, "\\b(\\p{Alpha}{2,})\\b");

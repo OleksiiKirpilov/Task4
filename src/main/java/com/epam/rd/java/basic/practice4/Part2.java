@@ -1,23 +1,22 @@
 package com.epam.rd.java.basic.practice4;
 
 import java.io.*;
-import java.nio.charset.StandardCharsets;
 import java.security.SecureRandom;
 import java.util.logging.Level;
 
 public class Part2 {
 
-    private static SecureRandom rnd = new SecureRandom();
+    private static final SecureRandom rnd = new SecureRandom();
 
     public static void main(String[] args) {
         String data = generateData();
         writeStringToFile("part2.txt", data);
-        System.out.printf("input ==> %s", data);
+        System.out.printf("input ==> %s%n", data);
         int[] numbers = loadData();
         sort(numbers);
         data = numbersToString(numbers);
         writeStringToFile("part2_sorted.txt", data);
-        System.out.printf(" output ==> %s", data);
+        System.out.printf("output ==> %s%n", data);
     }
 
     private static String numbersToString(int[] numbers) {
@@ -48,7 +47,7 @@ public class Part2 {
         return numbers;
     }
 
-    private static int[] sort(int[] numbers) {
+    private static void sort(int[] numbers) {
         for (int i = 0; i < numbers.length; i++) {
             for (int j = i + 1; j < numbers.length; j++) {
                 if (numbers[j] < numbers[i]) {
@@ -56,7 +55,6 @@ public class Part2 {
                 }
             }
         }
-        return numbers;
     }
 
     private static void swapElenemts(int[] numbers, int i, int j) {
