@@ -1,12 +1,13 @@
 package com.epam.rd.java.basic.practice4;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Random;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.security.SecureRandom;
 import java.util.logging.Level;
 
 public class Part2 {
+
+    private static SecureRandom rnd = new SecureRandom();
 
     public static void main(String[] args) {
         String data = generateData();
@@ -30,7 +31,6 @@ public class Part2 {
 
     private static String generateData() {
         StringBuilder sb = new StringBuilder();
-        Random rnd = new Random();
         for (int i = 0; i < 10; i++) {
             sb.append(rnd.nextInt(50)).append(' ');
         }
@@ -66,7 +66,8 @@ public class Part2 {
     }
 
     public static void writeStringToFile(String filename, String output) {
-        try (BufferedWriter w = new BufferedWriter(new FileWriter(filename))) {
+        try (BufferedWriter w = new BufferedWriter(new OutputStreamWriter(
+                new FileOutputStream(filename), "cp1251"))) {
             w.write(output);
         } catch (IOException e) {
             Part1.getLogger().log(Level.SEVERE, e.getMessage());
