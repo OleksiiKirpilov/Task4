@@ -16,8 +16,6 @@ public class Part4 implements Iterable<String> {
 
     public static void main(String[] args) {
         String input = Part1.getInput("part4.txt");
-        System.out.println(input);
-        System.out.println();
         Part4 t = new Part4(input);
         for (String s : t) {
             System.out.print(s);
