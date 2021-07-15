@@ -21,7 +21,7 @@ public class Part6 {
                     show(data, "\\p{IsLatin}+", line);
                     break;
                 default:
-                    System.out.println("Incorrect input");
+                    System.out.println(line + ": Incorrect input");
             }
         }
     }
@@ -33,7 +33,7 @@ public class Part6 {
         while (m.find()) {
             sb.append(m.group()).append(' ');
         }
-        System.out.print(sb);
+        System.out.println(sb);
     }
 
 }
