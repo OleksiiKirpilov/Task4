@@ -10,17 +10,15 @@ public class Part6 {
         String data = Part1.getInput("part6.txt");
         Scanner in = new Scanner(System.in);
         while (in.hasNextLine()) {
-            String line = in.nextLine().toLowerCase();
-            switch (line) {
+            String line = in.nextLine();
+            switch (line.toLowerCase()) {
                 case "stop":
                     return;
                 case "cyrl":
-                    System.out.print("Cyrl: ");
-                    show(data, "\\p{IsCyrillic}+");
+                    show(data, "\\p{IsCyrillic}+", line);
                     break;
                 case "latn":
-                    System.out.print("Latn: ");
-                    show(data, "\\p{IsLatin}+");
+                    show(data, "\\p{IsLatin}+", line);
                     break;
                 default:
                     System.out.println("Incorrect input");
@@ -28,9 +26,10 @@ public class Part6 {
         }
     }
 
-    private static void show(String data, String regex) {
+    private static void show(String data, String regex, String line) {
         Matcher m = Pattern.compile(regex, Pattern.UNICODE_CHARACTER_CLASS).matcher(data);
         StringBuilder sb = new StringBuilder();
+        System.out.print(line + ": ");
         while (m.find()) {
             sb.append(m.group()).append(' ');
         }
