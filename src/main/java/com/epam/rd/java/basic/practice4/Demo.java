@@ -31,7 +31,8 @@ public class Demo {
         System.out.println("=========================== PART5");
         // set the mock input
         System.setIn(new ByteArrayInputStream(
-                "table ru^table en^apple ru^stop".replace("^", System.lineSeparator()).getBytes(StandardCharsets.UTF_8)));
+                "table ru^table en^apple ru^stop".replace("^",
+                        System.lineSeparator()).getBytes(StandardCharsets.UTF_8)));
         Part5.main(args);
         // restore the standard input
         System.setIn(STD_IN);
@@ -39,7 +40,8 @@ public class Demo {
         System.out.println("=========================== PART6");
         // set the mock input
         System.setIn(new ByteArrayInputStream(
-                "Latn^Cyrl^asdf^latn^cyrl^stop".replace("^", System.lineSeparator()).getBytes(StandardCharsets.UTF_8)));
+                "Latn^Cyrl^asdf^latn^cyrl^stop".replace("^",
+                        System.lineSeparator()).getBytes(StandardCharsets.UTF_8)));
         Part6.main(args);
         // restore the standard input
         System.setIn(STD_IN);

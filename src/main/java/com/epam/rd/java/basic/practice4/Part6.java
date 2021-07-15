@@ -10,7 +10,8 @@ public class Part6 {
         String data = Part1.getInput("part6.txt");
         Scanner in = new Scanner(System.in);
         while (in.hasNextLine()) {
-            switch (in.nextLine()) {
+            String line = in.nextLine().toLowerCase();
+            switch (line) {
                 case "stop":
                     return;
                 case "cyrl":
@@ -30,9 +31,6 @@ public class Part6 {
         StringBuilder sb = new StringBuilder();
         while (m.find()) {
             sb.append(m.group()).append(' ');
-        }
-        if (sb.length() > 1) {
-            sb.deleteCharAt(sb.length() - 1);
         }
         System.out.print(sb);
     }
