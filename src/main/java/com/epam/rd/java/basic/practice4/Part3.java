@@ -19,8 +19,7 @@ public class Part3 {
         String data = Part1.getInput("part3.txt");
         Scanner in = new Scanner(System.in);
         while (in.hasNextLine()) {
-            String line = in.nextLine();
-            switch (line) {
+            switch (in.nextLine()) {
                 case "stop":
                     return;
                 case "char":

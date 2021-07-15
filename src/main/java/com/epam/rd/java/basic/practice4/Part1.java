@@ -41,7 +41,6 @@ public class Part1 {
             deletedCount += 2;
         }
         return sb.toString();
-
     }
 
     public static void main(String[] args) {
