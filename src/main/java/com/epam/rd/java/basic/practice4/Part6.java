@@ -15,9 +15,11 @@ public class Part6 {
                 case "stop":
                     return;
                 case "cyrl":
+                    System.out.print("Cyrl: ");
                     show(data, "\\p{IsCyrillic}+");
                     break;
                 case "latn":
+                    System.out.print("Latn: ");
                     show(data, "\\p{IsLatin}+");
                     break;
                 default:
