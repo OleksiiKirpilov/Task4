@@ -1,6 +1,7 @@
 package com.epam.rd.java.basic.practice4;
 
 import java.util.Iterator;
+import java.util.logging.Level;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -30,7 +31,7 @@ public class Part4 implements Iterable<String> {
 
     private class SentenceIterator implements Iterator<String> {
 
-        private final Pattern pattern = Pattern.compile("[^.]+\\.*",
+        private final Pattern pattern = Pattern.compile("(?! )[^.]+\\.*",
                 Pattern.DOTALL | Pattern.UNICODE_CHARACTER_CLASS);
         private final Matcher matcher = pattern.matcher(Part4.this.text);
 
@@ -41,7 +42,11 @@ public class Part4 implements Iterable<String> {
 
         @Override
         public String next() {
-            return matcher.group();
+            try {
+                return matcher.group();
+            } catch (IllegalStateException e) {
+                throw new IllegalStateException();
+            }
         }
     }
 
