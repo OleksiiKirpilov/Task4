@@ -1,6 +1,7 @@
 package com.epam.rd.java.basic.practice4;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 import java.util.logging.Level;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -45,7 +46,7 @@ public class Part4 implements Iterable<String> {
             try {
                 return matcher.group();
             } catch (IllegalStateException e) {
-                throw new IllegalStateException();
+                throw new NoSuchElementException();
             }
         }
     }
