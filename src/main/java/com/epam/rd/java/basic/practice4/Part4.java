@@ -20,7 +20,7 @@ public class Part4 implements Iterable<String> {
         System.out.println();
         Part4 t = new Part4(input);
         for (String s : t) {
-            System.out.println(s);
+            System.out.print(s);
         }
     }
 
@@ -43,7 +43,7 @@ public class Part4 implements Iterable<String> {
         @Override
         public String next() {
             try {
-                return matcher.group();
+                return matcher.group() + System.lineSeparator();
             } catch (IllegalStateException e) {
                 throw new NoSuchElementException();
             }
