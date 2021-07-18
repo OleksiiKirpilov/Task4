@@ -16,9 +16,6 @@ public class Part4 implements Iterable<String> {
 
     public static void main(String[] args) {
         String input = Part1.getInput("part4.txt");
-        //String[] lines = input.split(System.lineSeparator());
-        //input.replace(System.lineSeparator(), " ");
-        //input = String.join("", lines);
         Part4 t = new Part4(input);
         for (String s : t) {
             System.out.print(s);
@@ -32,7 +29,7 @@ public class Part4 implements Iterable<String> {
 
     private class SentenceIterator implements Iterator<String> {
 
-        private final Pattern pattern = Pattern.compile("(?s)\\p{javaUpperCase}+[^.]+\\.*"); //"(?sU)(?!\\s+)[^.]+\\.*");
+        private final Pattern pattern = Pattern.compile("(?s)\\p{javaUpperCase}+[^.]+\\.*");
         private final Matcher matcher = pattern.matcher(Part4.this.text);
 
         @Override
@@ -42,14 +39,13 @@ public class Part4 implements Iterable<String> {
 
         @Override
         public String next() {
-
+            String s;
             try {
-                String s = matcher.group();
-                s.replace(System.lineSeparator(), " ");
-                return s + System.lineSeparator();
+                s = matcher.group();
             } catch (IllegalStateException e) {
                 throw new NoSuchElementException();
             }
+            return s.replace(System.lineSeparator(), " ") + System.lineSeparator();
         }
     }
 
