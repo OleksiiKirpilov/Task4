@@ -19,7 +19,7 @@ public class Part5 {
 
     private static void show(String[] words) {
         Locale l = new Locale(words[1]);
-        ResourceBundle keys = ResourceBundle.getBundle("resource", l);
+        ResourceBundle keys = ResourceBundle.getBundle("resources", l);
         System.out.println(keys.getString(words[0]));
     }
 

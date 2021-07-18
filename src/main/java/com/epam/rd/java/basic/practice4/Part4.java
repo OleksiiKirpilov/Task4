@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 
 public class Part4 implements Iterable<String> {
 
-    private String text;
+    private final String text;
 
     public Part4(String s) {
         text = s;
