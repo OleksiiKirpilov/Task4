@@ -18,7 +18,7 @@ public class Part6 {
                     show(data, "\\p{IsCyrillic}+", line);
                     break;
                 case "latn":
-                    show(data, "\\p{IsLatin}+", line);
+                    show(data, "[A-Za-z]+", line);
                     break;
                 default:
                     System.out.println(line + ": Incorrect input");
@@ -27,7 +27,7 @@ public class Part6 {
     }
 
     private static void show(String data, String regex, String line) {
-        Matcher m = Pattern.compile(regex, Pattern.UNICODE_CHARACTER_CLASS).matcher(data);
+        Matcher m = Pattern.compile(regex).matcher(data);
         StringBuilder sb = new StringBuilder();
         System.out.print(line + ": ");
         while (m.find()) {
