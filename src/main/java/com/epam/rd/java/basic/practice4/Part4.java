@@ -17,7 +17,7 @@ public class Part4 implements Iterable<String> {
     public static void main(String[] args) {
         String input = Part1.getInput("part4.txt");
         //String[] lines = input.split(System.lineSeparator());
-        input.replace(System.lineSeparator(), " ");
+        //input.replace(System.lineSeparator(), " ");
         //input = String.join("", lines);
         Part4 t = new Part4(input);
         for (String s : t) {
@@ -42,8 +42,11 @@ public class Part4 implements Iterable<String> {
 
         @Override
         public String next() {
+
             try {
-                return matcher.group() + System.lineSeparator();
+                String s = matcher.group();
+                s.replace(System.lineSeparator(), " ");
+                return s + System.lineSeparator();
             } catch (IllegalStateException e) {
                 throw new NoSuchElementException();
             }
