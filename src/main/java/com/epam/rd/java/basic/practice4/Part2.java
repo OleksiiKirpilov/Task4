@@ -1,6 +1,9 @@
 package com.epam.rd.java.basic.practice4;
 
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.security.SecureRandom;
 import java.util.logging.Level;
 
@@ -48,16 +51,16 @@ public class Part2 {
     }
 
     private static void sort(int[] numbers) {
-        for (int i = 0; i < numbers.length; i++) {
-            for (int j = i + 1; j < numbers.length; j++) {
+        for (int i = 0; i < numbers.length - 1; i++) {
+            for (int j = i; j < numbers.length; j++) {
                 if (numbers[j] < numbers[i]) {
-                    swapElenemts(numbers, i, j);
+                    swapElements(numbers, i, j);
                 }
             }
         }
     }
 
-    private static void swapElenemts(int[] numbers, int i, int j) {
+    private static void swapElements(int[] numbers, int i, int j) {
         int tmp = numbers[i];
         numbers[i] = numbers[j];
         numbers[j] = tmp;

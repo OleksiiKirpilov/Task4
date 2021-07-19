@@ -32,7 +32,7 @@ public class Part1 {
     }
 
     public static String process(String input) {
-        Matcher m = Pattern.compile("[\\w]{4,}", Pattern.UNICODE_CHARACTER_CLASS).matcher(input);
+        Matcher m = Pattern.compile("(?U)\\w{4,}").matcher(input);
         StringBuilder sb = new StringBuilder(input);
         int deletedCount = 0;
         while (m.find()) {
