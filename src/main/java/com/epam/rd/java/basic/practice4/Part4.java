@@ -29,7 +29,7 @@ public class Part4 implements Iterable<String> {
 
     private class SentenceIterator implements Iterator<String> {
 
-        private final Pattern pattern = Pattern.compile("(?s)\\p{javaUpperCase}+[^.]+\\.*");
+        private final Pattern pattern = Pattern.compile("\\p{javaUpperCase}+[^.]+\\.*");
         private final Matcher matcher = pattern.matcher(Part4.this.text);
 
         @Override
@@ -39,13 +39,11 @@ public class Part4 implements Iterable<String> {
 
         @Override
         public String next() {
-            String s;
             try {
-                s = matcher.group();
+                return matcher.group();
             } catch (IllegalStateException e) {
                 throw new NoSuchElementException();
             }
-            return s;
         }
     }
 
