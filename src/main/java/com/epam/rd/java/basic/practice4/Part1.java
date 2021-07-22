@@ -33,13 +33,11 @@ public class Part1 {
 
     public static String process(String input) {
         Matcher m = Pattern.compile("(?U)\\w{4,}").matcher(input);
-        StringBuilder sb = new StringBuilder(input);
-        int deletedCount = 0;
+        StringBuffer sb = new StringBuffer();
         while (m.find()) {
-            int index = m.start() - deletedCount;
-            sb.delete(index, index + 2);
-            deletedCount += 2;
+            m.appendReplacement(sb, m.group().substring(2));
         }
+        m.appendTail(sb);
         return sb.toString();
     }
 
