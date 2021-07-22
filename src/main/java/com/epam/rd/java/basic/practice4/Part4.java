@@ -15,10 +15,10 @@ public class Part4 implements Iterable<String> {
     }
 
     public static void main(String[] args) {
-        String input = Part1.getInput("part4.txt");
+        String input = Part1.getInput("part4.txt").replace(System.lineSeparator(), " ");
         Part4 t = new Part4(input);
         for (String s : t) {
-            System.out.print(s);
+            System.out.println(s);
         }
     }
 
@@ -45,7 +45,7 @@ public class Part4 implements Iterable<String> {
             } catch (IllegalStateException e) {
                 throw new NoSuchElementException();
             }
-            return s.replace(System.lineSeparator(), " ") + System.lineSeparator();
+            return s;
         }
     }
 
