@@ -31,19 +31,28 @@ public class Part4 implements Iterable<String> {
 
         private final Pattern pattern = Pattern.compile("\\p{javaUpperCase}+[^.]+\\.*");
         private final Matcher matcher = pattern.matcher(Part4.this.text);
+        private String next = null;
 
         @Override
         public boolean hasNext() {
-            return matcher.find();
+            if (next != null) {
+                return true;
+            }
+            boolean hasNext = matcher.find();
+            if (hasNext) {
+                next = matcher.group();
+            }
+            return hasNext;
         }
 
         @Override
         public String next() {
-            try {
-                return matcher.group();
-            } catch (IllegalStateException e) {
-                throw new NoSuchElementException();
+            if (hasNext()) {
+                String out = next;
+                next = null;
+                return out;
             }
+            throw new NoSuchElementException();
         }
     }
 
